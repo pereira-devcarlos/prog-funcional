@@ -30,6 +30,8 @@ totalVendasDecrescente x
     | x == 0 = vendas 0
     | otherwise = vendas x + totalVendasDecrescente(x - 1)
 
+
+
 main :: IO()
 main = do
     print(vendas 3)
