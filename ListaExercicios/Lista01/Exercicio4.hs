@@ -6,8 +6,8 @@ invertInt :: Int -> Int
 invertInt x = aux x 0
 
 aux :: Int -> Int -> Int
-aux 0 acumulador = acumulador
-aux resto acumulador = aux (resto`div`10) (acumulador * 10 + resto `mod` 10)
+aux 0 tmp2 = tmp2
+aux tmp1 tmp2 = aux (tmp1`div`10) (tmp2 * 10 + tmp1 `mod` 10)
 
 main = do
     print(invertInt 12345)
