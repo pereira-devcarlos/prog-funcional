@@ -53,17 +53,17 @@ diaMaiorVendas x
 main :: IO()
 main = do
     -- Testando as funções
-    putStrLn "Vendas do dia 3:"
+    putStr "Vendas do dia 3: "
     print(vendas 3)
 
-    putStrLn "Total de vendas (crescente):"
+    putStr "Total de vendas (crescente): "
     print(totalVendasCrescente 1)
 
-    putStrLn "Total de vendas (decrescente):"
+    putStr "Total de vendas (decrescente): "
     print(totalVendasDecrescente periodo)
 
-    putStrLn "Maior venda no período:"
+    putStr "Maior venda no período: "
     print(maiorVendas periodo)
 
-    putStrLn "Dia com a maior venda no período:"
+    putStr "Dia com a maior venda no período: "
     print(diaMaiorVendas periodo)
