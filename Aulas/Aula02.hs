@@ -1,6 +1,7 @@
 -------------------------------------
----Vendas.hs
+---Aula02.hs
 -------------------------------------
+-- Vendas de uma loja em um período de 8 dias
 
 -- Número de dias no período de vendas
 periodo :: Int
