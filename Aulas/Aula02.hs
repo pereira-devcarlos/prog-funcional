@@ -31,10 +31,14 @@ totalVendasDecrescente x
     | x == 0 = vendas 0
     | otherwise = vendas x + totalVendasDecrescente(x - 1)
 
-
-
 main :: IO()
 main = do
+    -- Testando as funções
+    putStrLn "Vendas do dia 3:"
     print(vendas 3)
-    print(totalVendasCrescente 0)
+
+    putStrLn "Total de vendas (crescente):"
+    print(totalVendasCrescente 1)
+
+    putStrLn "Total de vendas (decrescente):"
     print(totalVendasDecrescente periodo)
