@@ -1,6 +1,8 @@
 --------------------------------------
----Fatorial.hs
+---Aula01.hs
 --------------------------------------
+
+--Fatorial
 
 fatorial :: Int -> Int
 fatorial x
