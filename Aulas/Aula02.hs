@@ -43,6 +43,13 @@ maiorVendas x
     | x == 0 = vendas 0
     | otherwise = maior (vendas x) (maiorVendas(x-1))
 
+-- Função para encontrar o dia com a maior venda no período
+diaMaiorVendas :: Int -> Int
+diaMaiorVendas x
+    | x == 0 = 0
+    | vendas x > vendas(diaMaiorVendas(x-1)) = x
+    | otherwise = diaMaiorVendas(x-1)
+
 main :: IO()
 main = do
     -- Testando as funções
@@ -57,3 +64,6 @@ main = do
 
     putStrLn "Maior venda no período:"
     print(maiorVendas periodo)
+
+    putStrLn "Dia com a maior venda no período:"
+    print(diaMaiorVendas periodo)
