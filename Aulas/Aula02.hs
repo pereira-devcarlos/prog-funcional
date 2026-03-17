@@ -31,6 +31,18 @@ totalVendasDecrescente x
     | x == 0 = vendas 0
     | otherwise = vendas x + totalVendasDecrescente(x - 1)
 
+-- Função para encontrar o maior valor entre dois números
+maior :: Int -> Int -> Int
+maior x y
+    | x > y = x
+    | otherwise = y
+
+-- Função para encontrar a maior venda no período
+maiorVendas :: Int -> Int
+maiorVendas x
+    | x == 0 = vendas 0
+    | otherwise = maior (vendas x) (maiorVendas(x-1))
+
 main :: IO()
 main = do
     -- Testando as funções
@@ -42,3 +54,6 @@ main = do
 
     putStrLn "Total de vendas (decrescente):"
     print(totalVendasDecrescente periodo)
+
+    putStrLn "Maior venda no período:"
+    print(maiorVendas periodo)
