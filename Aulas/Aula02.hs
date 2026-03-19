@@ -81,6 +81,19 @@ diaMaiorVendas02 p v
 mediaVendas :: Periodo -> Vendas -> Float
 mediaVendas x total = fromIntegral total / fromIntegral x
 
+----------------------------------------------
+-- Função para contar quantos dias têm vendas menores que um valor
+-- em um determinado intervalo de dias
+howManyLess :: Int -> Int -> Int -> Int
+howManyLess valor inicio fim = numDias valor inicio fim 0
+
+
+numDias :: Int -> Int -> Int -> Int -> Int
+numDias valor inicio fim dias
+    | inicio > fim || inicio > periodo = dias
+    | vendas inicio < valor = numDias valor (inicio + 1) fim (dias + 1)
+    | otherwise = numDias valor (inicio + 1) fim dias
+
 main :: IO()
 main = do
     -- Testando as funções
@@ -104,3 +117,6 @@ main = do
 
     putStr "Média de vendas por dia: "
     print(mediaVendas periodo (totalVendasDecrescente periodo))
+
+    putStr "Número de dias com vendas menores que 20 entre os dias 1 e 5: "
+    print(howManyLess 20 1 5)
