@@ -43,3 +43,10 @@ anyDigitAux i num tam
     | tam <= i || i < 0 = -1
     | tam == (i+1) = num `mod` 10
     | otherwise = anyDigitAux i (num `div` 10) (tam - 1)
+
+----------------------------------------
+---Exercicio 12
+----------------------------------------
+-- Verifique se três números são diferentes entre si
+allDifferent :: Int -> Int -> Int -> Bool
+allDifferent m n p = (m /= n) && (n /= p) && (m /= p)
