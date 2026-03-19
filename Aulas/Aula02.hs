@@ -94,6 +94,14 @@ numDias valor inicio fim dias
     | vendas inicio < valor = numDias valor (inicio + 1) fim (dias + 1)
     | otherwise = numDias valor (inicio + 1) fim dias
 
+----------------------------------------------
+-- Função para verificar se não houve vendas zero em um período
+noZeroInPeriod :: Int -> Bool
+noZeroInPeriod 0 = True
+noZeroInPeriod x
+    | vendas x == 0 = False
+    | otherwise = noZeroInPeriod (x - 1)
+
 main :: IO()
 main = do
     -- Testando as funções

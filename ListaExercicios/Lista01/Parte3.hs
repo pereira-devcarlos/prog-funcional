@@ -44,8 +44,13 @@ howManyEqual a b c
 ----------------------------------------
 -- A resolução do exercício está em: 
 -- Aulas/Aula02.hs
+-- Letra a)
 {-Função: howManyLess}
+
+-- Letra b>
+{-Função: noZeroInPeriod}
 
 ----------------------------------------
 ---Exercício 15
 ----------------------------------------
+
