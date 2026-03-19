@@ -64,6 +64,10 @@ diaMaiorVendas02 p v
     | vendas p == v = p
     | otherwise = diaMaiorVendas02 (p - 1) v
 
+-- Função para calcular a média de vendas por dia
+mediaVendas :: Periodo -> Vendas -> Float
+mediaVendas x total = fromIntegral total / fromIntegral x
+
 main :: IO()
 main = do
     -- Testando as funções
@@ -84,3 +88,6 @@ main = do
 
     putStr "Dia com a maior venda no período (alternativa): "
     print(diaMaiorVendas02 periodo (maiorVendas periodo))
+
+    putStr "Média de vendas por dia: "
+    print(mediaVendas periodo (totalVendasDecrescente periodo))
