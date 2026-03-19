@@ -23,3 +23,23 @@ howManyMultiples num inicio fim
 -- Último dígito de um número
 lastDigit :: Int -> Int
 lastDigit x = x `mod` 10
+
+--------------------------------------
+---Exercicio 11
+--------------------------------------
+-- Encontre o dígito de um número em uma posição específica
+tamanhoInt :: Int -> Int
+tamanhoInt num = tamanho num 0
+
+tamanho :: Int -> Int -> Int
+tamanho 0 a = a
+tamanho num a = tamanho (num `div` 10) (a + 1)
+
+anyDigit :: Int -> Int -> Int
+anyDigit i num = anyDigitAux i num (tamanhoInt num)
+
+anyDigitAux :: Int -> Int -> Int -> Int
+anyDigitAux i num tam
+    | tam <= i || i < 0 = -1
+    | tam == (i+1) = num `mod` 10
+    | otherwise = anyDigitAux i (num `div` 10) (tam - 1)
