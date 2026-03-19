@@ -1,5 +1,9 @@
+---Parte 1 - Lista 01
+--Exercícios 01 à 05
 --------------------------------------
----Exercicio 1
+
+--------------------------------------
+---Exercício 1
 --------------------------------------
 -- Funções com condicionais
 f1 :: Double -> Double
@@ -19,7 +23,7 @@ f3 (x,y,z)
     | (x+y) == z = 0
 
 --------------------------------------
----Exercicio 2
+---Exercício 2
 --------------------------------------
 -- Fatorial de um número usando recursão
 fat :: Int -> Int
@@ -27,7 +31,7 @@ fat 0 = 1
 fat x = x * fat(x-1)
 
 --------------------------------------
----Exercicio 3
+---Exercício 3
 --------------------------------------
 -- Multiplicação de dois números usando apenas soma
 soma :: Int -> Int -> Int
@@ -39,7 +43,7 @@ mult a b
     | otherwise = soma b (mult b (a-1))
 
 --------------------------------------
----Exercicio 4
+---Exercício 4
 --------------------------------------
 -- Inverter um número inteiro 
 invertInt :: Int -> Int
@@ -50,7 +54,7 @@ aux 0 tmp2 = tmp2
 aux tmp1 tmp2 = aux (tmp1`div`10) (tmp2 * 10 + tmp1 `mod` 10)
 
 --------------------------------------
----Exercicio 5
+---Exercício 5
 --------------------------------------
 -- Função que calcula a quarta potência de um número
 square :: Int -> Int

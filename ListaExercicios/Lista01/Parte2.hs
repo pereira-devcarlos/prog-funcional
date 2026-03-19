@@ -1,5 +1,9 @@
+---Parte 2 - Lista 01
+--Exercícios 06 à 10
 --------------------------------------
----Exercicio 6
+
+--------------------------------------
+---Exercício 6
 --------------------------------------
 -- Calcular a raiz quadrada de 6 n vezes
 raiz :: Int -> Double 
@@ -7,7 +11,7 @@ raiz 0 = 0
 raiz x = sqrt (6 + raiz (x - 1))
 
 --------------------------------------
----Exercicio 7
+---Exercício 7
 --------------------------------------
 -- Quantas maneiras diferentes existem 
 -- para escolher n elementos de um 
@@ -22,7 +26,7 @@ maneiras n m
     | otherwise = fat m `div` (fat n * fat(m-n))
 
 --------------------------------------
----Exercicio 8 
+---Exercício 8
 --------------------------------------
 -- Máximo divisor comum (MDC) entre dois números
 mdc :: Int -> Int -> Int
@@ -31,7 +35,7 @@ mdc m n
     | otherwise = mdc n (m `mod` n)
 
 --------------------------------------
----Exercicio 9
+---Exercício 9
 --------------------------------------
 -- Quantos múltiplos de um número existem em um intervalo
 howManyMultiples :: Int -> Int -> Int -> Int
@@ -41,7 +45,7 @@ howManyMultiples num inicio fim
     | otherwise = howManyMultiples num (inicio+1) fim
 
 --------------------------------------
----Exercicio 10
+---Exercício 10
 --------------------------------------
 -- Último dígito de um número
 lastDigit :: Int -> Int

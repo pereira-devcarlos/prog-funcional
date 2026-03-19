@@ -1,5 +1,9 @@
+---Parte 3 - Lista 01
+--Exercícios 11 à 15
 --------------------------------------
----Exercicio 11
+
+--------------------------------------
+---Exercício 11
 --------------------------------------
 -- Encontre o dígito de um número em uma posição específica
 tamanhoInt :: Int -> Int
@@ -19,14 +23,14 @@ anyDigitAux i num tam
     | otherwise = anyDigitAux i (num `div` 10) (tam - 1)
 
 ----------------------------------------
----Exercicio 12
+---Exercício 12
 ----------------------------------------
 -- Verifique se três números são diferentes entre si
 allDifferent :: Int -> Int -> Int -> Bool
 allDifferent m n p = (m /= n) && (n /= p) && (m /= p)
 
 ----------------------------------------
----Exercicio 13
+---Exercício 13
 ----------------------------------------
 -- Conte quantos números iguais existem entre três números
 howManyEqual :: Int -> Int -> Int -> Int
