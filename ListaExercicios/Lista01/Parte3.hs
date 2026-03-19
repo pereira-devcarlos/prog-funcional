@@ -24,3 +24,13 @@ anyDigitAux i num tam
 -- Verifique se três números são diferentes entre si
 allDifferent :: Int -> Int -> Int -> Bool
 allDifferent m n p = (m /= n) && (n /= p) && (m /= p)
+
+----------------------------------------
+---Exercicio 13
+----------------------------------------
+-- Conte quantos números iguais existem entre três números
+howManyEqual :: Int -> Int -> Int -> Int
+howManyEqual a b c
+    | (a == b) && (b == c) = 3
+    | (a == b) || (b == c) = 2
+    | otherwise = 0
