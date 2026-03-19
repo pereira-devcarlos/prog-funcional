@@ -3,12 +3,17 @@
 -------------------------------------
 -- Vendas de uma loja em um período de 8 dias
 
+-- Definindo os tipos
+type Dia = Int
+type Vendas = Int
+type Periodo = Int
+
 -- Número de dias no período de vendas
-periodo :: Int
+periodo :: Periodo
 periodo = 8  
 
 -- Função para obter as vendas de um determinado dia
-vendas :: Int -> Int
+vendas :: Dia -> Vendas
 vendas 1 = 24
 vendas 2 = 15
 vendas 3 = 17
@@ -20,13 +25,13 @@ vendas 8 = 1
 vendas _ = 0
 
 -- Função para calcular o total de vendas de forma crescente
-totalVendasCrescente :: Int -> Int
+totalVendasCrescente :: Periodo -> Vendas
 totalVendasCrescente x 
     | x == periodo = vendas periodo
     | otherwise = vendas x + totalVendasCrescente(x + 1)
 
 -- Função para calcular o total de vendas de forma decrescente
-totalVendasDecrescente :: Int -> Int
+totalVendasDecrescente :: Periodo -> Vendas
 totalVendasDecrescente x
     | x == 0 = vendas 0
     | otherwise = vendas x + totalVendasDecrescente(x - 1)
@@ -38,17 +43,26 @@ maior x y
     | otherwise = y
 
 -- Função para encontrar a maior venda no período
-maiorVendas :: Int -> Int
+maiorVendas :: Periodo -> Vendas
 maiorVendas x
     | x == 0 = vendas 0
     | otherwise = maior (vendas x) (maiorVendas(x-1))
 
 -- Função para encontrar o dia com a maior venda no período
-diaMaiorVendas :: Int -> Int
-diaMaiorVendas x
+-- Parâmetro: período (número de dias)
+diaMaiorVendas01 :: Periodo -> Dia
+diaMaiorVendas01 x
     | x == 0 = 0
-    | vendas x > vendas(diaMaiorVendas(x-1)) = x
-    | otherwise = diaMaiorVendas(x-1)
+    | vendas x > vendas(diaMaiorVendas01(x-1)) = x
+    | otherwise = diaMaiorVendas01(x-1)
+
+-- Função alternativa para encontrar o dia com a maior venda no período
+-- Parâmetros: período e a maior venda
+diaMaiorVendas02 :: Periodo -> Vendas -> Dia
+diaMaiorVendas02 0 _ = 0
+diaMaiorVendas02 p v
+    | vendas p == v = p
+    | otherwise = diaMaiorVendas02 (p - 1) v
 
 main :: IO()
 main = do
@@ -66,4 +80,7 @@ main = do
     print(maiorVendas periodo)
 
     putStr "Dia com a maior venda no período: "
-    print(diaMaiorVendas periodo)
+    print(diaMaiorVendas01 periodo)
+
+    putStr "Dia com a maior venda no período (alternativa): "
+    print(diaMaiorVendas02 periodo (maiorVendas periodo))
