@@ -7,11 +7,8 @@
 --------------------------------------
 -- Encontre o dígito de um número em uma posição específica
 tamanhoInt :: Int -> Int
-tamanhoInt num = tamanho num 0
-
-tamanho :: Int -> Int -> Int
-tamanho 0 a = a
-tamanho num a = tamanho (num `div` 10) (a + 1)
+tamanhoInt 0 = 0
+tamanhoInt num = 1 + tamanhoInt (num `div` 10)
 
 anyDigit :: Int -> Int -> Int
 anyDigit i num = anyDigitAux i num (tamanhoInt num)
