@@ -17,7 +17,7 @@ Haskell é uma linguagem de programação puramente funcional, conhecida por seu
 
 1. Clone este repositório:
    ```sh
-   git clone https://github.com/seu-usuario/funcional.git
+   git clone https://github.com/pereira-devcarlos/prog-funcional.git
    ```
 2. Navegue pelos arquivos e pastas para acessar os exemplos e exercícios.
 3. Para executar os exemplos, é necessário ter o [GHC](https://www.haskell.org/ghc/) instalado.
