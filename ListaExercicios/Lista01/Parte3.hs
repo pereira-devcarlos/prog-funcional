@@ -52,11 +52,26 @@ howManyEqual a b c
 ----------------------------------------
 -- Encontre a posição de um número na sequência de Fibonacci
 antFib :: Int -> Int
-antFib num = antFibAux num 0 1
+antFib num = antFib02 num 0 1 0
 
-antFibAux :: Int -> Int -> Int -> Int
-antFibAux num ac soma 
+--antFib com 3 parâmetros:
+-- num: número a ser encontrado
+-- ac: número atual da sequência de Fibonacci
+-- soma: próximo número da sequência de Fibonacci
+antFib01 :: Int -> Int -> Int -> Int
+antFib01 num ac soma 
     | num < ac = -1
     | num == ac = 0
-    | antFibAux num soma (ac + soma) == -1 = -1
-    | otherwise = 1 + antFibAux num (ac + soma) ac
+    | antFib01 num soma (ac + soma) == -1 = -1
+    | otherwise = 1 + antFib01 num (ac + soma) ac
+
+--antFib com 4 parâmetros:
+-- num: número a ser encontrado
+-- ac: número atual da sequência de Fibonacci
+-- soma: próximo número da sequência de Fibonacci
+-- pos: posição atual na sequência de Fibonacci
+antFib02 :: Int -> Int -> Int -> Int -> Int
+antFib02 num ac soma pos
+    | num < ac = -1
+    | num == ac = pos
+    | otherwise = antFib02 num soma (ac + soma) (pos + 1)
