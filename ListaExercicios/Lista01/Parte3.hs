@@ -56,6 +56,7 @@ antFib num = antFibAux num 0 1
 
 antFibAux :: Int -> Int -> Int -> Int
 antFibAux num ac soma 
---  | num < ac = -1 Precisa ajustar o retorno ainda
+    | num < ac = -1
     | num == ac = 0
+    | antFibAux num soma (ac + soma) == -1 = -1
     | otherwise = 1 + antFibAux num (ac + soma) ac
