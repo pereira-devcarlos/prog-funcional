@@ -42,12 +42,20 @@ howManyEqual a b c
 -- A resolução do exercício está em: 
 -- Aulas/Aula02.hs
 -- Letra a)
-{-Função: howManyLess}
+--Função: howManyLess
 
--- Letra b>
-{-Função: noZeroInPeriod}
+-- Letra b)
+--Função: noZeroInPeriod
 
 ----------------------------------------
 ---Exercício 15
 ----------------------------------------
+-- Encontre a posição de um número na sequência de Fibonacci
+antFib :: Int -> Int
+antFib num = antFibAux num 0 1
 
+antFibAux :: Int -> Int -> Int -> Int
+antFibAux num ac soma 
+--  | num < ac = -1 Precisa ajustar o retorno ainda
+    | num == ac = 0
+    | otherwise = 1 + antFibAux num (ac + soma) ac
