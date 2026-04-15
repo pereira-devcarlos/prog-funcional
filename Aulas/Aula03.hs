@@ -11,3 +11,10 @@ sumList (x:xs) = x + sumList xs
 double :: [Int] -> [Int]
 double []=[]
 double (x:xs) = (x*2) : double xs
+
+-- Função para verificar se o elemento pertence a lista
+member :: Int -> [Int] -> Bool
+member _ [] = False
+member x (y:ys)
+    | x == y = True
+    | otherwise = member x ys
