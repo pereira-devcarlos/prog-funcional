@@ -45,3 +45,14 @@ listSalesAux :: Int -> [Int]
 listSalesAux x
     | x > periodo = []
     | otherwise = vendas x : listSalesAux(x+1)
+
+dayAndSale :: Int -> [Int]
+dayAndSale x = x : vendas x : []
+
+listDaysAndSales :: [[Int]]
+listDaysAndSales = listDaysAndSalesAux 1
+
+listDaysAndSalesAux :: Int -> [[Int]]
+listDaysAndSalesAux x
+    | x > periodo = []
+    | otherwise = dayAndSale x : listDaysAndSalesAux(x+1)
