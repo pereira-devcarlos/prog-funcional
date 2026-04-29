@@ -38,6 +38,7 @@ vendas 6 = 18
 vendas 7 = 25
 vendas _ = 0
 
+-- Função para listar as vendas de cada dia do período
 listSales :: [Int]
 listSales = listSalesAux 1
 
@@ -46,9 +47,11 @@ listSalesAux x
     | x > periodo = []
     | otherwise = vendas x : listSalesAux(x+1)
 
+-- Função para listar o dia e a venda correspondente
 dayAndSale :: Int -> [Int]
 dayAndSale x = x : vendas x : []
 
+-- Função para listar o dia e a venda correspondente de cada dia do período
 listDaysAndSales :: [[Int]]
 listDaysAndSales = listDaysAndSalesAux 1
 
@@ -56,3 +59,11 @@ listDaysAndSalesAux :: Int -> [[Int]]
 listDaysAndSalesAux x
     | x > periodo = []
     | otherwise = dayAndSale x : listDaysAndSalesAux(x+1)
+
+-- Função para ordenar uma parte da lista
+sortPartList :: [Int] -> [Int]
+sortPartList [] = []
+sortPartList [a] = [a]
+sortPartList (x:y:tail)
+    | x > y = y : sortPartList (x : tail)
+    | otherwise = x : sortPartList (y : tail)
