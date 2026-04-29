@@ -60,6 +60,14 @@ listDaysAndSalesAux x
     | x > periodo = []
     | otherwise = dayAndSale x : listDaysAndSalesAux(x+1)
 
+-- Função para retornar o maior num da lista
+maxList :: [Int] -> Int
+maxList [] = 0
+maxList [a] = a
+maxList (x:y:tail)
+    | x >= y = maxList (x:tail)
+    | otherwise = maxList (y:tail)
+
 -- Função para ordenar uma parte da lista
 sortPartList :: [Int] -> [Int]
 sortPartList [] = []
