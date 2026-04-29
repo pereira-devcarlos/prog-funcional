@@ -31,9 +31,13 @@ contList x (y:ys)
 
 {- 06 inverte a lista -}
 reverseList:: [Int]->[Int]
-reverseList _ = []
+reverseList [] = []
+reverseList (x:xs) = reverseList xs ++ [x]
 
 {- 07 inverte elementos das listas internas -}
+reverseInside :: [[Int]] -> [[Int]]
+reverseInside [] = []
+reverseInside (x:xs) = reverseList x : reverseInside xs
 
 {- 08 função que exclui a penúltima ocorrência de um número na lista-}
 rPenultimo ::[Int] -> Int -> [Int]
@@ -55,8 +59,3 @@ rPenultimo (x:xs) y
 gBool :: [Int]->Int-> [Bool]
 gBool [] _ = []
 gBool (a:x) z = (a>z):gBool x z
-
-{- função que reverte uma lista -}
-reverte :: [a] -> [a]
-reverte   []  = []
-reverte (b:x) = reverte x ++ [b]
