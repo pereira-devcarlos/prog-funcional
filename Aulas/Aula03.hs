@@ -67,3 +67,14 @@ sortPartList [a] = [a]
 sortPartList (x:y:tail)
     | x > y = y : sortPartList (x : tail)
     | otherwise = x : sortPartList (y : tail)
+
+
+-- Função para ir ordenando a lista até que ela esteja completamente ordenada
+sortList :: [Int] -> Int -> [Int]
+sortList [] _ = []
+sortList l 1 = l 
+sortList l n = sortList (sortPartList l) (n-1)
+
+-- Função para ordenar uma lista inspirado em bubble sort
+bubbleSort :: [Int] -> [Int]
+bubbleSort l = sortList l (length l)
