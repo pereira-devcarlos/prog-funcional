@@ -86,3 +86,14 @@ sortList l n = sortList (sortPartList l) (n-1)
 -- Função para ordenar uma lista inspirado em bubble sort
 bubbleSort :: [Int] -> [Int]
 bubbleSort l = sortList l (length l)
+
+-- Função para retornar dia da semana em string
+dayOfWeek :: Int -> String
+dayOfWeek 1 = "Segunda-Feira"
+dayOfWeek 2 = "Terça-Feira"
+dayOfWeek 3 = "Quarta-Feira"
+dayOfWeek 4 = "Quinta-Feira"
+dayOfWeek 5 = "Sexta-Feira"
+dayOfWeek 6 = "Sabado"
+dayOfWeek 7 = "Domingo"
+dayOfWeek _ = ""
