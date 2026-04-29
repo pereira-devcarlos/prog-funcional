@@ -59,3 +59,9 @@ rPenultimo (x:xs) y
 gBool :: [Int]->Int-> [Bool]
 gBool [] _ = []
 gBool (a:x) z = (a>z):gBool x z
+
+myHead :: [a] -> a
+myHead (x:xs) = x
+
+myTail :: [a] -> [a]
+myTail (x:xs) = xs
