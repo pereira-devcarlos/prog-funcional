@@ -9,18 +9,26 @@
 {- 01 função que soma os elementos de uma lista -}
 sumList::[Int]->Int
 sumList [] = 0
+sumList (x:xs) = x + sumList xs
 
 {- 02-localiza elemento em lista -}
 searchList::Int->[Int]->Bool
-searchList _ _ = False
+searchList _ [] = False
+searchList y (x:xs)
+    | y == x = True
+    | otherwise = searchList y xs
 
 {-03 remove todas ocorrências de y em uma lista -}
 deleteList::Int->[Int]->[Int]
-deleteList _ _ = []
+deleteList _ [] = []
+deleteList y (x:xs)
+    | y == x = deleteList y xs
+    | otherwise = x : deleteList y xs
 
 {-04 informa o tamanho de uma lista -}
 lenghtList::[Int]->Int
-lenghtList _ = 0
+lenghtList [] = 0
+lenghtList (x:xs) = 1 + lenghtList xs
 
 {-05 conta a ocorrência de um Int em [Int] -}
 contList::Int->[Int]->Int
