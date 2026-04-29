@@ -24,7 +24,10 @@ lenghtList _ = 0
 
 {-05 conta a ocorrência de um Int em [Int] -}
 contList::Int->[Int]->Int
-contList _ _ = 0
+contList _ [] = 0
+contList x (y:ys)
+    | x == y = 1 + contList x ys
+    | otherwise = contList x ys
 
 {- 06 inverte a lista -}
 reverseList:: [Int]->[Int]
@@ -33,7 +36,11 @@ reverseList _ = []
 {- 07 inverte elementos das listas internas -}
 
 {- 08 função que exclui a penúltima ocorrência de um número na lista-}
-
+rPenultimo ::[Int] -> Int -> [Int]
+rPenultimo [] _ = []
+rPenultimo (x:xs) y
+    | x == y && contList y xs == 1 = xs
+    | otherwise = x : rPenultimo xs y
 
 -------------------------------------------------------------
 {- Exercícios
