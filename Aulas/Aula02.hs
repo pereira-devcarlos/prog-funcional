@@ -101,30 +101,3 @@ noZeroInPeriod 0 = True
 noZeroInPeriod x
     | vendas x == 0 = False
     | otherwise = noZeroInPeriod (x - 1)
-
-main :: IO()
-main = do
-    -- Testando as funções
-    putStr "Vendas do dia 3: "
-    print(vendas 3)
-
-    putStr "Total de vendas (crescente): "
-    print(totalVendasCrescente 1)
-
-    putStr "Total de vendas (decrescente): "
-    print(totalVendasDecrescente periodo)
-
-    putStr "Maior venda no período: "
-    print(maiorVendas periodo)
-
-    putStr "Dia com a maior venda no período: "
-    print(diaMaiorVendas01 periodo)
-
-    putStr "Dia com a maior venda no período (alternativa): "
-    print(diaMaiorVendas02 periodo (maiorVendas periodo))
-
-    putStr "Média de vendas por dia: "
-    print(mediaVendas periodo (totalVendasDecrescente periodo))
-
-    putStr "Número de dias com vendas menores que 20 entre os dias 1 e 5: "
-    print(howManyLess 20 1 5)
