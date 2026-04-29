@@ -90,10 +90,24 @@ bubbleSort l = sortList l (length l)
 -- Função para retornar dia da semana em string
 dayOfWeek :: Int -> String
 dayOfWeek 1 = "Segunda-Feira"
-dayOfWeek 2 = "Terça-Feira"
+dayOfWeek 2 = "Terca-Feira"
 dayOfWeek 3 = "Quarta-Feira"
 dayOfWeek 4 = "Quinta-Feira"
 dayOfWeek 5 = "Sexta-Feira"
 dayOfWeek 6 = "Sabado"
 dayOfWeek 7 = "Domingo"
 dayOfWeek _ = ""
+
+-- Funçõa retorna tupla com o dia da semana e venda
+tuplaDayAndSales :: Int -> (String, Int)
+tuplaDayAndSales x = (dayOfWeek x, vendas x)
+
+-- Função retorna uma lista de tupla(dia da semana, venda do dia)
+listTuplasDaySales :: Int -> [(String, Int)]
+listTuplasDaySales x
+    | x > periodo = []
+    | otherwise = tuplaDayAndSales x : listTuplasDaySales (x+1)
+
+-- Função para chamar já passando indice inicial
+listTuplas :: [(String, Int)]
+listTuplas = listTuplasDaySales 1
