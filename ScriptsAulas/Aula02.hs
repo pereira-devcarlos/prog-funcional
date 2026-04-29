@@ -65,3 +65,12 @@ myHead (x:xs) = x
 
 myTail :: [a] -> [a]
 myTail (x:xs) = xs
+
+myLast :: [a] -> a
+myLast [a] = a
+myLast (x:xs) = myLast xs
+
+myInit :: [a] -> [a]
+myInit [] = []
+myInit [a] = []
+myInit (x:xs) = x : myInit xs
