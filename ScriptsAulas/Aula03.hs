@@ -1,3 +1,4 @@
+import System.Win32 (COORD(yPos))
 {- Assunto: listas e tuplas -}
 
 periodo::Int
@@ -12,12 +13,12 @@ maxi m n
 vendas :: Int -> Int
 vendas 0 = 0
 vendas 1 = 41
-vendas 2 = 72
+vendas 2 = 95
 vendas 3 = 48
 vendas 4 = 0
-vendas 5 = 91
-vendas 6 = 55
-vendas 7 = 30
+vendas 5 = 95
+vendas 6 = 95
+vendas 7 = 91
 
 {- 01 função que retorna uma lista de vendas -}
 listaVendas :: Int-> [Int]
@@ -113,3 +114,17 @@ maiorVendaT8d [] = 0
 maiorVendaT8d c = maxi (snd(head c)) (maiorVendaT8d (tail c))
   
 {- 09 função que retorna os dias das maiores vendas -}
+maioresVendasT :: [(Int, Int)] -> [Int]
+maioresVendasT x = maioresVendasAux (maiorVendaT8b x) (countSnd x (maiorVendaT8b x))
+
+{- função auxiliar para retornar os dias das maiores vendas -}
+maioresVendasAux :: Int -> Int -> [Int]
+maioresVendasAux _ 0 = []
+maioresVendasAux x i = x : maioresVendasAux x (i-1)
+
+{- função auxiliar para contar ocorrências de um valor na segunda posição das tuplas(vendas) -}
+countSnd :: [(Int,Int)] -> Int -> Int
+countSnd [] _ = 0
+countSnd (x:xs) y
+    | snd x == y = 1 + countSnd xs y
+    | otherwise = countSnd xs y
