@@ -93,8 +93,11 @@ totalVendasT [] = 0
 totalVendasT (x:xs) = snd (x) + totalVendasT xs
 
 {- 08 função que retorna a maior venda -}
- 
---maiorVendasT8a::Int-> [(Int, Int)] -> Int 
+maiorVendasT8a::Int -> [(Int, Int)] -> Int
+maiorVendasT8a x [] = x
+maiorVendasT8a x (y:ys)
+    | snd y > x = maiorVendasT8a (snd y) ys
+    | otherwise = maiorVendasT8a x ys
   
 {- 08-b como implementar com apenas os parâmetros? -}
 maiorVendaT8b::[(Int, Int)] -> Int    
