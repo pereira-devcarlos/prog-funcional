@@ -72,7 +72,13 @@ sortListList l n = sortListList (sortPartListList l) (n-1)
 
 ---------------------------------------------------------------------------
 {- 05 função que ordena as listas internas de [[Int]] e, em seguida, ordena a [[Int]] -}
---ordenaLILE::[[Int]] ->[[Int]]
+ordenaLILE::[[Int]] -> [[Int]]
+ordenaLILE [] = []
+ordenaLILE x = ordenaListaLista (ordenaLILEAux x)
+
+ordenaLILEAux :: [[Int]] -> [[Int]]
+ordenaLILEAux [] = []
+ordenaLILEAux (x:xs) = ordenaLista x : ordenaLILEAux xs
 
 
 -----------  tuplas --------------------------------------------------------
