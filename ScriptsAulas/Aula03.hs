@@ -34,13 +34,26 @@ f2L x = [x,vendas x]:f2L (x-1)
 
 ----------------------------------------------------------
 {- 03 função que ordena uma lista de inteiros -}
---ordenaLista::[Int]->[Int]
+ordenaLista::[Int] -> [Int]
+ordenaLista x = sortList x (length x)
 
+-- Função para ordenar uma parte da lista
+sortPartList :: [Int] -> [Int]
+sortPartList [] = []
+sortPartList [a] = [a]
+sortPartList (x:y:tail)
+    | x > y = y : sortPartList (x : tail)
+    | otherwise = x : sortPartList (y : tail)
+
+-- Função para ir ordenando a lista até que ela esteja completamente ordenada
+sortList :: [Int] -> Int -> [Int]
+sortList [] _ = []
+sortList l 1 = l 
+sortList l n = sortList (sortPartList l) (n-1)
 
 -------------------------------------------------------------------------
 {- 04 função que ordena [[Int]] pelo primeiro Int de cada lista  -}
 --ordenaListaLista::[[Int]]->[[Int]]
-
 
 ---------------------------------------------------------------------------
 {- 05 função que ordena as listas internas de [[Int]] e, em seguida, ordena a [[Int]] -}
