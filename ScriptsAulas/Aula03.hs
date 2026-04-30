@@ -20,13 +20,18 @@ vendas 6 = 55
 vendas 7 = 30
 
 {- 01 função que retorna uma lista de vendas -}
---listaVendas :: Int-> [Int]
+listaVendas :: Int-> [Int]
+listaVendas x 
+    | x > periodo = []
+    | otherwise = vendas x : listaVendas (x+1)
+
 
 {- 02 função que retorna [[Int]] com listas de dia e venda -}
-
 f2L::Int->[[Int]]
 f2L 0 = []
 f2L x = [x,vendas x]:f2L (x-1)  
+
+
 ----------------------------------------------------------
 {- 03 função que ordena uma lista de inteiros -}
 --ordenaLista::[Int]->[Int]
