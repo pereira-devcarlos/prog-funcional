@@ -76,7 +76,6 @@ sortPartList (x:y:tail)
     | x > y = y : sortPartList (x : tail)
     | otherwise = x : sortPartList (y : tail)
 
-
 -- Função para ir ordenando a lista até que ela esteja completamente ordenada
 sortList :: [Int] -> Int -> [Int]
 sortList [] _ = []
