@@ -51,9 +51,24 @@ sortList [] _ = []
 sortList l 1 = l 
 sortList l n = sortList (sortPartList l) (n-1)
 
+
 -------------------------------------------------------------------------
 {- 04 função que ordena [[Int]] pelo primeiro Int de cada lista  -}
---ordenaListaLista::[[Int]]->[[Int]]
+ordenaListaLista::[[Int]]->[[Int]]
+ordenaListaLista x = sortListList x (length x)
+
+sortPartListList :: [[Int]] -> [[Int]]
+sortPartListList [] = []
+sortPartListList [a] = [a]
+sortPartListList (x:y:ys)
+    | head x > head y = y : sortPartListList(x : ys)
+    | otherwise = x : sortPartListList(y : ys)
+
+sortListList :: [[Int]] -> Int -> [[Int]]
+sortListList [] _ = []
+sortListList l 1 = l
+sortListList l n = sortListList (sortPartListList l) (n-1)
+
 
 ---------------------------------------------------------------------------
 {- 05 função que ordena as listas internas de [[Int]] e, em seguida, ordena a [[Int]] -}
