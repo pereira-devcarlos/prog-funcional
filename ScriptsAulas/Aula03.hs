@@ -88,7 +88,9 @@ f6T 0 = []
 f6T x = (x,vendas x):f6T (x-1)
 
 {- 07 função que gera o total de vendas-}
---totalVendasT::[(Int, Int)] -> Int
+totalVendasT::[(Int, Int)] -> Int
+totalVendasT [] = 0
+totalVendasT (x:xs) = snd (x) + totalVendasT xs
 
 {- 08 função que retorna a maior venda -}
  
