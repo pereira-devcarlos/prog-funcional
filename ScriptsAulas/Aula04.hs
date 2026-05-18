@@ -19,9 +19,11 @@ myZip (x:xs) (y:ys) = (x,y): myZip xs ys
 
 {- 04 função que recebe [Char] e retorna [(Bool,Char)] 
    True se Char for alfanumérico e False, caso contrário -}
---setAlfa::String -> [(Bool,Char)] 
+setAlfa::String -> [(Bool,Char)]
+setAlfa [] = []
+setAlfa (x:xs) = [(ord x >= 48 && ord x <= 90 || ord x >= 97 && ord x <= 122, x)] ++ setAlfa xs
 
-   
+
 {- 05 função que recebe [(Bool, Char)] e filtra alfanuméricos -}
 --filtraAlfa:: [(Bool,Char)] -> String
 
