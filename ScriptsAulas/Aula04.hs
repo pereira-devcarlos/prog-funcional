@@ -13,7 +13,9 @@ myUnzip ((x,y):ys) = (x: fst(myUnzip ys), y: snd(myUnzip ys))
 
 ------------------------------------------------------------
 {- 03 função que junta duas listas em lista de duplas -}
---myZip::[Bool]->[Char] ->[(Bool,Char)]  
+myZip::[Bool]->[Char] ->[(Bool,Char)]
+myZip [] [] = []
+myZip (x:xs) (y:ys) = (x,y): myZip xs ys   
 
 {- 04 função que recebe [Char] e retorna [(Bool,Char)] 
    True se Char for alfanumérico e False, caso contrário -}
