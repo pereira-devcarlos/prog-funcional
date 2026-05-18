@@ -25,7 +25,11 @@ setAlfa (x:xs) = [(ord x >= 48 && ord x <= 90 || ord x >= 97 && ord x <= 122, x)
 
 
 {- 05 função que recebe [(Bool, Char)] e filtra alfanuméricos -}
---filtraAlfa:: [(Bool,Char)] -> String
+filtraAlfa:: [(Bool,Char)] -> String
+filtraAlfa [] = ""
+filtraAlfa (x:xs)
+    | fst x = snd x : filtraAlfa xs
+    | otherwise = filtraAlfa xs
 
 {- 06 função transforma String de alfa em Int -}
 --alfaToInt::String -> [Int]
