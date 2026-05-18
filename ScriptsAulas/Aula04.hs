@@ -32,8 +32,11 @@ filtraAlfa (x:xs)
     | otherwise = filtraAlfa xs
 
 {- 06 função transforma String de alfa em Int -}
---alfaToInt::String -> [Int]
-
+alfaToInt::String -> [Int]
+alfaToInt [] = []
+alfaToInt (x:xs)
+    | isNumber x = (ord x - ord '0') : alfaToInt xs
+    | otherwise = alfaToInt xs
 
 {-- 07 função que gera tabela ascii -}
 --geraASCII::Int->[(Int,Char)]
