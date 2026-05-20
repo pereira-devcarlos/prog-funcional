@@ -39,3 +39,14 @@ f4 (_, []) = []
 f4 (x, (y:ys))
     | fst y = f4 (x, ys)
     | otherwise = snd y : f4 (x, ys)
+
+---- Questão 5
+{-
+Faça, em Haskell, uma solução que receba duas strings S e R, cuja menor tem tamanho
+n. Sua solução deverá retornar uma lista de Bool B de tamanho n, de modo que cada Bi será
+a informação se Si é igual ou diferente de Ri, para 0 ≤ i < n.
+-}
+f5 :: String -> String -> [Bool]
+f5 [] _ = []
+f5 _ [] = []
+f5 (x:xs) (y:ys) = (x == y) : (f5 xs ys)
