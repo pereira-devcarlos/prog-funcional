@@ -28,3 +28,14 @@ de l, se o elemento x pertence ou não à li.
 -}
 f3 :: Int -> [[Int]] -> (Int, [(Bool,[Int])])
 f3 x y = (x, f2 x y)
+
+---- Quetão 4
+{-
+Faça, em Haskell, uma solução que receba uma (Int,[(Bool,[Int])]) e gere uma [[Int]]
+com apenas as listas [Int] cujo Bool da dupla é False.
+-}
+f4 :: (Int, [(Bool,[Int])]) -> [[Int]]
+f4 (_, []) = []
+f4 (x, (y:ys))
+    | fst y = f4 (x, ys)
+    | otherwise = snd y : f4 (x, ys)
