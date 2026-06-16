@@ -15,3 +15,7 @@ multiples5 x =  filter xs x
 squareOfEven :: [Int] -> [Int]
 squareOfEven x = map (^2) (filter xs x)
     where xs a = a `mod` 2 == 0
+
+-- Exercise 4
+concatenate :: [[Int]] -> [Int]
+concatenate x = foldr (++) [] x
