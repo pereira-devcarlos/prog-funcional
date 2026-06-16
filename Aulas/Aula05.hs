@@ -19,3 +19,7 @@ squareOfEven x = map (^2) (filter xs x)
 -- Exercise 4
 concatenate :: [[Int]] -> [Int]
 concatenate x = foldr (++) [] x
+
+-- Exercise 5
+myReverse :: [[Int]] -> [Int]
+myReverse x = foldl (++) [] x
