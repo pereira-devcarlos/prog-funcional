@@ -29,10 +29,10 @@ filtraAO f [] = []
 filtraAO f (a:b)
   |f a       = a:filtraAO f b
   |otherwise =   filtraAO f b
-	
+
 {- reescrevendo com uso de list comprehension -}
 filtraAO_LC::(Char->Bool)->String->String
-filtraAO_LC f s = [a| a<-s, f a]
+filtraAO_LC f s = [a | a<-s, f a]
 
 {-As funções f1_p1 e f2_p2, a seguir, são específicas. A partir
 de uma [String], elas geram [(Bool, String)] separando as strings
