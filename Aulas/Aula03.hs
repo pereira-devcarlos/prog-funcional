@@ -45,11 +45,11 @@ listSales = listSalesAux 1
 listSalesAux :: Int -> [Int]
 listSalesAux x
     | x > periodo = []
-    | otherwise = vendas x : listSalesAux(x+1)
+    | otherwise = vendas x : listSalesAux (x+1)
 
 -- Função para listar o dia e a venda correspondente
 dayAndSale :: Int -> [Int]
-dayAndSale x = x : vendas x : []
+dayAndSale x = [x, vendas x]
 
 -- Função para listar o dia e a venda correspondente de cada dia do período
 listDaysAndSales :: [[Int]]
@@ -58,7 +58,7 @@ listDaysAndSales = listDaysAndSalesAux 1
 listDaysAndSalesAux :: Int -> [[Int]]
 listDaysAndSalesAux x
     | x > periodo = []
-    | otherwise = dayAndSale x : listDaysAndSalesAux(x+1)
+    | otherwise = dayAndSale x : listDaysAndSalesAux (x+1)
 
 -- Função para retornar o maior num da lista
 maxList :: [Int] -> Int
@@ -79,7 +79,7 @@ sortPartList (x:y:tail)
 -- Função para ir ordenando a lista até que ela esteja completamente ordenada
 sortList :: [Int] -> Int -> [Int]
 sortList [] _ = []
-sortList l 1 = l 
+sortList l 1 = l
 sortList l n = sortList (sortPartList l) (n-1)
 
 -- Função para ordenar uma lista inspirado em bubble sort

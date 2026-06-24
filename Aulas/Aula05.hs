@@ -1,14 +1,16 @@
 ---------------------------------------------
 ---Aula03.hs
 ---------------------------------------------
+{- HLINT ignore "Use concat" -}
+{- HLINT ignore "Use even" -}
 
 -- Exercise 1
 square :: [Int] -> [Int]
-square x = map (^2) x
+square = map (^2)
 
 -- Exercise 2
 multiples5 :: [Int] -> [Int]
-multiples5 x =  filter xs x
+multiples5 =  filter xs
     where xs a = a `mod` 5 == 0
 
 -- Exercise 3
@@ -18,8 +20,8 @@ squareOfEven x = map (^2) (filter xs x)
 
 -- Exercise 4
 concatenate :: [[Int]] -> [Int]
-concatenate x = foldr (++) [] x
+concatenate = foldr (++) [] 
 
 -- Exercise 5
 myReverse :: [[Int]] -> [Int]
-myReverse x = foldl (++) [] x
+myReverse = foldl (++) []

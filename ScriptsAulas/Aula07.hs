@@ -5,6 +5,9 @@
    Para tanto, iniciamos com um problema simples e mostramos,
    a cada passo, as possibilidades de melhorias.
    -}
+{- HLINT ignore "Use map" -}
+{- HLINT ignore "Use foldr" -}
+{- HLINT ignore "Use camelCase" -}
 import Data.Char
 
 {-motivação-}
@@ -15,11 +18,11 @@ mul_b::Int->Int->Int
 mul_b a b = a * b
 
 op_c::(Int->Int->Int)-> Int-> Int -> Int
-op_c f x y = (f) x y
+op_c f = f
 
 {-pode passar a função (* 9), por exemplo -}
 op_d ::(Int->Int)-> Int-> Int
-op_d f y = f y
+op_d f = f
 
 {-escreva função de alta ordem para filtrar digito ou alpha -
   neste caso, o f pode ser isDigit ou isAlpha-}
@@ -41,12 +44,12 @@ que só possuem dígitos das demais --}
 -- questão 01
 f1_p1::String->Bool
 f1_p1 []    = True
-f1_p1 (a:b) = isDigit (a) && f1_p1 b
+f1_p1 (a:b) = isDigit a && f1_p1 b
 
 -- questão 02
 f2_p1::[String]->[(Bool, String)]
 f2_p1 []    = []
-f2_p1 (a:b) = (f1_p1 a, a):f2_p1 b   
+f2_p1 (a:b) = (f1_p1 a, a):f2_p1 b
 
 {-generalizando a função f2_p1 -}
 f2_p1_generica::(String->Bool)->[String]->[(Bool,String)]
@@ -70,14 +73,14 @@ cr01_Algum_Char f (a:b)   = f (a) || cr01_Algum_Char f b
 {-observe que todos ou alguns podem ser generalizados, também. 
   Para isso, basta passar o operador lógico && ou || -}
 
-cr01_A_T_Char::(Bool->Bool->Bool)->(Char->Bool)->String->Bool  
+cr01_A_T_Char::(Bool->Bool->Bool)->(Char->Bool)->String->Bool
 cr01_A_T_Char _ f [a]     = f a
 cr01_A_T_Char o f (a:b)   = (o) (f (a)) (cr01_A_T_Char o f b)
 
 
 {- as funções abaixo filtram de [(Bool, String)] a [String]
    de acordo com o Booleano -}
-    
+
 {-como transformá-las em uma função genérica? -}
 
 filtraT::[(Bool, String)]->[String]
@@ -85,11 +88,11 @@ filtraT [] = []
 filtraT (a:b)
   |fst a     = snd a:filtraT b
   |otherwise =       filtraT b
-  
-filtraF::[(Bool, String)]->[String]  
-filtraF [] = []  
+
+filtraF::[(Bool, String)]->[String]
+filtraF [] = []
 filtraF (a:b)
-  |not(fst a) = snd a:filtraF b
+  |not (fst a) = snd a:filtraF b
   |otherwise  =       filtraF b
 
 {--------------------solução---------------------}
@@ -100,7 +103,7 @@ filtraTF f (a:b)
   |otherwise =       filtraTF f b
 
 seletor  x = x
-inversor x = not(x)
+inversor = not
 {------------------------------------------------}
 
 ------------------  revisão e uso de alta ordem ----------------------------
@@ -109,13 +112,13 @@ inversor x = not(x)
 
 f1::Char->[Int]->Int
 f1 c x
-  |isDigit (c)     && x==[]    = 0
-  |not (isDigit c) && x==[]    = 1
+  |isDigit c     && null x    = 0
+  |not (isDigit c) && null x    = 1
   |isDigit c                   = a + f1 c b
   |otherwise                   = a * f1 c b
     where (a:b) = x
 
-    
+
 {- reescreva f1 usando casamento de padrão -}
 --f2::Char->[Int]->Int
 
@@ -132,4 +135,4 @@ f1 c x
 
 {- função que converte caixa baixa para caixa  alta
    usar a função myMap para aplicar a uma String -}
-   
+
